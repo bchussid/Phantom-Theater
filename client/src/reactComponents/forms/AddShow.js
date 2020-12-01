@@ -7,6 +7,8 @@ import { useHistory } from 'react-router'
 import NumberFormat from 'react-number-format'
 import "../formcss/addShow.css";
 
+
+
 function AdminForm() {
    // create state for show information
    const history = useHistory()
@@ -38,10 +40,10 @@ function AdminForm() {
    let [link2, setLink2] = useState("");
 
    // construct object from state to pass to db
-  
+
    // write current state to shows collection
    async function enterNewShow() {
-      
+
 
       let show = {
          title: title,
@@ -92,8 +94,8 @@ function AdminForm() {
          // event.target.link1Input.value = "";
          // event.target.link2Input.value = "";
          alert("Show has been added!")
-        history.push('/adminDash')
-         
+         history.push('/adminDash')
+
 
          // clear state
          // setTitle("");
@@ -126,20 +128,20 @@ function AdminForm() {
    };
 
    const enterURL = async (largeRef) => {
-   
+
       largeRef.put(imageLgFile).then((snapshot) => {
          console.log('snapshot ', snapshot);
          largeRef.getDownloadURL().then(async (url) => {
             setImageLg(url);
             console.log(url);
-         
+
          });
       });
    }
-      
+
    const handleUpload = async (evt) => {
       evt.preventDefault();
-        await enterNewShow();
+      await enterNewShow();
    };
 
 
